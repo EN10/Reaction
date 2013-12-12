@@ -7,7 +7,7 @@ app.use(express.logger());
 var fs = require('fs');
 var filename = '/html5/index.html';
 var index = fs.readFileSync(filename);
-var buffer = = new Buffer(index, "utf-8");
+var buffer = new Buffer(index, "utf-8");
 
 
 app.get('/', function(request, response) {
