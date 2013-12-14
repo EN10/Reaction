@@ -1,18 +1,23 @@
-#!/usr/bin/env node
+ var express = require("express");
+ var app = express();
 
-var express = require('express');
-var app = express();
-app.use(express.logger());
+ /* serves main page */
+ app.get("/", function(req, res) {
+    res.sendfile('index.html')
+ });
 
-var fs = require('fs');
-var filename = 'index.html';
+  app.post("/user/add", function(req, res) { 
+	/* some server side logic */
+	res.send("OK");
+  });
 
-app.get('/', function(request, response) {
-  var html = fs.readFileSync(filename).toString(); 
-  response.send(html);
-});
+ /* serves all the static files */
+ app.get(/^(.+)$/, function(req, res){ 
+     console.log('static file request : ' + req.params);
+     res.sendfile( __dirname + req.params[0]); 
+ });
 
-var port = process.env.PORT || 8080;
-app.listen(port, function() {
-  console.log("Listening on " + port);
-});
+ var port = process.env.PORT || 80;
+ app.listen(port, function() {
+   console.log("Listening on " + port);
+ });
