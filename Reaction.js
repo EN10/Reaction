@@ -4,15 +4,15 @@ w=window.innerHeight/4-10; 		// Sq Size
 h=w;	r=0;	a=0;			// Sq X
 
 window.onload = load;			
-function load()					// Reset variables		
+function load()				// Reset variables		
 {	score = 1; 	time = 10;	start = "no"; a=0;	drawCanvas();
 	document.getElementById("header").style.fontSize=w/6+1+"px";
 	if (navigator.platform = "Win32")	{ sp = "&emsp; &emsp; &ensp;"; }
-	else								{ sp = "&ensp;"; }
+	else					{ sp = "&ensp;"; }
 	document.getElementById("header").innerHTML="Time: "+time+sp+" Click $ "+sp+" Score: "+score;
 	document.getElementById("footer").innerHTML="";
 	document.getElementById("canvas").addEventListener("mousedown", onMouseDown);
-}								// Initial Click $ Header
+}					// Initial Click $ Header
 	
 function onMouseDown(event)		// Mouse ClickXY
 {	x = event.clientX; y = event.clientY;
@@ -20,23 +20,23 @@ function onMouseDown(event)		// Mouse ClickXY
 	if (time >0)	{sqClicked();	refresh();}
 }
 
-function sqClicked()					// Detect Sq clicked
-{ 	 if	(x < 10)		{ sq = 0; }		// Canvas starts 10 pixels on x
-else if	(x < 10+w)		{ sq = 1; }
+function sqClicked()			// Detect Sq clicked
+{  if	(x < 10)	{ sq = 0; }	// Canvas starts 10 pixels on x
+else if	(x < 10+w)	{ sq = 1; }
 else if	(x < 10+2*w)	{ sq = 2; }
 else if	(x < 10+3*w)	{ sq = 3; }
-else					{ sq = 0; }
-	 if	(y < 60)		{ sq = 0; }		// Canvas starts 60 pixels on y
-else if	(y < 60+h)		{	}
+else			{ sq = 0; }
+if	(y < 60)	{ sq = 0; }	// Canvas starts 60 pixels on y
+else if	(y < 60+h)	{	}
 else if (y < 60+2*h)	{ sq += 3; }
 else if (y < 60+3*h)	{ sq += 6; }
-else					{ sq = 0;  }
+else			{ sq = 0;  }
 }
 
 function onKeyPress()
 {	sq = parseInt(String.fromCharCode(event.charCode));
 	console.log("ID: ", event.charCode);
-	if 		(sq<4) sq+=6;
+	if 	(sq<4) sq+=6;
 	else if	(sq>6) sq-=6;
 	refresh();	
 }
@@ -90,7 +90,7 @@ ctx.fillRect(w,h,w,h);
 ctx.fillRect(0,2*h,w,h);
 ctx.fillRect(2*w,2*h,w,h);
 
-if	(r == sq && time != 0)			{ score += 1; }		// Update score
+if	(r == sq && time != 0)		{ score += 1; }		// Update score
 else if (time != 0 && score > 0)	{ score -= 1; }
 var path=[3,2,1,4,5,6,9,8,7];
 if 	(time != 0 && a < 10)	{ r = path[a]; a++; }		// path
@@ -98,7 +98,7 @@ if 	(time != 0 && a > 9)	{ r = Math.round(Math.random() * 8) + 1; }
 
 ctx.fillStyle = "Red";		// Draw $
 ctx.font = w/2+"px Arial";
-i=w/3; j=h*2/3;				// Offset Sq Center
+i=w/3; j=h*2/3;			// Offset Sq Center
 if (r == 1) ctx.fillText("$",i,j);
 if (r == 2) ctx.fillText("$",i+w,j);
 if (r == 3) ctx.fillText("$",i+2*w,j);
@@ -109,5 +109,5 @@ if (r == 7) ctx.fillText("$",i,j+2*h);
 if (r == 8) ctx.fillText("$",i+w,j+2*h);
 if (r == 9) ctx.fillText("$",i+2*w,j+2*h);
 if (time < 10)	{ document.getElementById("header").innerHTML="Time: "+time+sp+"&ensp; Click $ "+sp+" Score: "+score; }
-else			{ document.getElementById("header").innerHTML="Time: "+time+sp+" Click $ "+sp+" Score: "+score; }
+else		{ document.getElementById("header").innerHTML="Time: "+time+sp+" Click $ "+sp+" Score: "+score; }
 }
