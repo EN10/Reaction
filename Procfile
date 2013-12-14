@@ -1,1 +1,1 @@
-web: node /html5/web.js
+web: node ./html5/web.js
