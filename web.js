@@ -2,8 +2,8 @@
  var app = express();
 
  /* serves main page */
- app.get("/", function(req, res) {
-    res.sendfile('/html5/index.html')
+ app.get("/html5/", function(req, res) {
+    res.sendfile('index.html')
  });
 
   app.post("/user/add", function(req, res) { 
