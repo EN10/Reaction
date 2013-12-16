@@ -2,7 +2,6 @@
   "name": "reaction",
   "version": "0.0.3",
   "description": "reaction html5 game",
-  "main": "web.js",
   "dependencies": {
     "express": "3.4.x"
   },
