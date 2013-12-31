@@ -61,17 +61,18 @@ function HeadFoot()
 		link = "<a href=http://topscores.herokuapp.com>Top Scores</a>";
 		document.getElementById("header").innerHTML=link+sp+"Click $"+sp+"Score: "+score;
 		document.getElementById("footer").innerHTML="GAME OVER! "+sp+sp+"&emsp;Restart?";
-		/* AJAX
-		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange=function()
-		{	// if (xhr.readyState==4 && xhr.status==200)	{ document.getElementById("footer").innerHTML=xmr.responseText; }
-		} */
-	var un = prompt("Please enter your name");
-	if (un != null && un != "")
-		{   	var url = "http://topscores.herokuapp.com?un="+un+"&s="+score;
-		   	xhr.open("GET",url,true);	// faster than POST
-			xhr.send(); 
-		}
+	  // AJAX
+	  var xhr = new XMLHttpRequest();
+	  xhr.onreadystatechange=function()
+	  { if (xhr.readyState==4 && xhr.status==200)	
+	    { document.getElementById("footer").innerHTML=xmr.responseText; }
+	  } 
+	  var un = prompt("Please enter your name");
+	  if (un != null && un != "")
+	  { var url = "http://topscores.herokuapp.com?un="+un+"&s="+score;
+	    xhr.open("GET",url,true);	// faster than POST
+	    xhr.send(); 
+	  }
 	}
 }
 
