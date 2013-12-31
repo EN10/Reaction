@@ -60,7 +60,8 @@ function HeadFoot()
 		document.getElementById("footer").style.fontSize=w/6+1+"px";
 		link = "<a href=http://topscores.herokuapp.com>Top Scores</a>";
 		document.getElementById("header").innerHTML=link+sp+"Click $"+sp+"Score: "+score;
-		document.getElementById("footer").innerHTML="GAME OVER! ".fontcolor("green")+sp+sp+"&emsp;Restart?";
+		document.getElementById("footer").innerHTML="GAME OVER! ".fontcolor("red")
+		+sp+sp+"&emsp;Restart?".fontcolor("green");
 	  // AJAX
 	  var xhr = new XMLHttpRequest();
 	  xhr.onreadystatechange=function()
