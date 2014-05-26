@@ -4,7 +4,7 @@ w=window.innerHeight/4-10; 		// Sq Size
 h=w;	r=0;	a=0;			// Sq X
 
 window.onload = load;			
-function load()				// Reset variables		
+function load()				    // Reset variables		
 {	score = 1; 	time = 10;	start = "no"; a=0;	drawCanvas();
 	document.getElementById("header").style.fontSize=w/6+1+"px";
 	if (navigator.platform = "Win32")	{ sp = "&emsp; &emsp; &ensp;"; }
@@ -12,7 +12,7 @@ function load()				// Reset variables
 	document.getElementById("header").innerHTML="Time: "+time+sp+" Click $ "+sp+" Score: "+score;
 	document.getElementById("footer").innerHTML="";
 	document.getElementById("canvas").addEventListener("mousedown", onMouseDown);
-}					// Initial Click $ Header
+}					            // Initial Click $ Header
 	
 function onMouseDown(event)		// Mouse ClickXY
 {	x = event.clientX; y = event.clientY;
@@ -26,7 +26,7 @@ else if	(x < 10+w)	{ sq = 1; }
 else if	(x < 10+2*w)	{ sq = 2; }
 else if	(x < 10+3*w)	{ sq = 3; }
 else			{ sq = 0; }
-if	(y < 60)	{ sq = 0; }	// Canvas starts 60 pixels on y
+if	(y < 60)	{ sq = 0; }	    // Canvas starts 60 pixels on y
 else if	(y < 60+h)	{	}
 else if (y < 60+2*h)	{ sq += 3; }
 else if (y < 60+3*h)	{ sq += 6; }
@@ -68,9 +68,9 @@ function HeadFoot()
 	  { if (xhr.readyState==4 && xhr.status==200)	
 	    { document.getElementById("footer").innerHTML=xmr.responseText; }
 	  } 
-	  var un = prompt("Please enter your name");
-	  if (un != null && un != "")
-	  { var url = "http://topscores.herokuapp.com?un="+un+"&s="+score;
+	  var u = prompt("Please enter your name");
+	  if (u != null && u != "")
+	  { var url = "http://topscores.herokuapp.com?u="+u+"&s="+score;
 	    xhr.open("GET",url,true);	// faster than POST
 	    xhr.send(); 
 	  }
