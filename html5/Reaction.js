@@ -58,7 +58,7 @@ function HeadFoot()
 		window.clearTimeout(setTimer);
 		document.getElementById("header").style.fontSize=w/6-1.25+"px";
 		document.getElementById("footer").style.fontSize=w/6+1+"px";
-		link = "<a href=http://topscores.herokuapp.com>Top Scores</a>";
+		link = "<a href=http://topscoresdb.herokuapp.com>Top Scores</a>";
 		document.getElementById("header").innerHTML=link+sp+"Click $"+sp+"Score: "+score;
 		document.getElementById("footer").innerHTML="GAME OVER! ".fontcolor("red")
 		+sp+sp+"&emsp;Restart?".fontcolor("green");
@@ -70,7 +70,7 @@ function HeadFoot()
 	  } 
 	  var u = prompt("Please enter your name");
 	  if (u != null && u != "")
-	  { var url = "http://topscores.herokuapp.com?u="+u+"&s="+score;
+	  { var url = "http://topscoresdb.herokuapp.com?u="+u+"&s="+score;
 	    xhr.open("GET",url,true);	// faster than POST
 	    xhr.send(); 
 	  }
