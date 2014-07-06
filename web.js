@@ -7,10 +7,7 @@
  });
 
  /* serves all the static files */
- app.get(/^(.+)$/, function(req, res){ 
-     console.log('static file request : ' + req.params);
-     res.sendfile(__dirname + req.params[0]); 
- });
+ app.use(express.static(__dirname));
 
  var port = process.env.PORT || 80;
  app.listen(port, function() {
